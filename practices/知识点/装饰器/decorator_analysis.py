@@ -30,11 +30,12 @@ def type_check(*expected_types):
             print(f"==list(enumerate(...))==: {list(enumerate(zip(args, expected_types)))}")
             print(f"==enumerate(...)==: {enumerate(zip(args, expected_types))}")
             
-            for i, (arg, expected_type) in enumerate(zip(args, expected_types)):
-                print(f"检查第{i+1}个参数: {arg} (类型:{type(arg)}) 是否为 {expected_type}")
+            for i, (arg, expected_type) in enumerate(zip(args, expected_types),start=1):
+                print(i,' ',arg,' ',expected_type)
+                print(f"检查第{i}个参数: {arg} (类型:{type(arg)}) 是否为 {expected_type}")
                 if not isinstance(arg, expected_type):
                     raise TypeError(f"参数 {i+1} 应该是 {expected_type.__name__} 类型，实际是 {type(arg).__name__}")
-                print(f"✓ 第{i+1}个参数类型正确")
+                print(f"✓ 第{i}个参数类型正确")
             
             print("--- 类型检查完成，执行原函数 ---\n")
             return func(*args, **kwargs)
