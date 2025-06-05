@@ -1,5 +1,6 @@
+
 database_host=localhost
 database_port=5432
 database_name=myapp
 debug_mode=True
-max_connections=100
+max_connections=100.6
