@@ -1,0 +1,7 @@
+
+2024-01-15 10:30:25 INFO User login successful: user_id=123
+2024-01-15 10:31:10 ERROR Database connection failed: timeout
+2024-01-15 10:32:15 INFO User logout: user_id=123
+2024-01-15 10:33:20 WARNING High memory usage: 85%
+2024-01-15 10:34:05 INFO User login successful: user_id=456
+2024-01-15 10:35:30 ERROR Authentication failed: invalid_token
