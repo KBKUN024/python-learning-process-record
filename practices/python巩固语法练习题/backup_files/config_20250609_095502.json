@@ -1,0 +1,7 @@
+{
+  "app_name": "backup_tool",
+  "version": "1.0",
+  "settings": {
+    "auto_backup": true
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "backup_time": "2025-06-09T09:48:45.721474",
+  "source_directory": "source_files",
+  "backup_directory": "backup_files",
+  "files_backed_up": [
+    {
+      "original_name": "test1.txt",
+      "backup_name": "test1_20250609_094845.txt",
+      "size": 62,
+      "size_formatted": "62 B",
+      "backup_time": "2025-06-09T09:48:45.721986"
+    },
+    {
+      "original_name": "test2.txt",
+      "backup_name": "test2_20250609_094845.txt",
+      "size": 46,
+      "size_formatted": "46 B",
+      "backup_time": "2025-06-09T09:48:45.722491"
+    },
+    {
+      "original_name": "config.json",
+      "backup_name": "config_20250609_094845.json",
+      "size": 96,
+      "size_formatted": "96 B",
+      "backup_time": "2025-06-09T09:48:45.722806"
+    },
+    {
+      "original_name": "subfolder/nested_file.txt",
+      "backup_name": "subfolder/nested_file_20250609_094845.txt",
+      "size": 58,
+      "size_formatted": "58 B",
+      "backup_time": "2025-06-09T09:48:45.723132"
+    }
+  ],
+  "total_files": 4,
+  "total_size": 262,
+  "status": "success",
+  "errors": []
+}
