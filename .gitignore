@@ -7,3 +7,8 @@ test.html
 .DS_Store
 练习文件概览.md
 practices/python巩固语法练习题/__pycache__/python巩固语法练习题2_答案.cpython-311.pyc
+practices/python巩固语法练习题/watch_dir/file_snapshot.json
+practices/python巩固语法练习题/watch_dir_fixed/file_changes.log
+practices/python巩固语法练习题/watch_dir_fixed/file_snapshot.json
+practices/python巩固语法练习题/watch_dir_fixed/file1.txt
+practices/python巩固语法练习题/watch_dir_fixed/haha.test
