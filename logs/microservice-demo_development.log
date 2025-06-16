@@ -1,0 +1,3 @@
+[2025-06-16 10:27:13,489] [    test.development] [[92mINFO    [0m] development 环境正常运行 | PID:37639 | Thread:8414234688
+[2025-06-16 10:27:13,489] [    test.development] [[93mWARNING [0m] development 环境警告信息 | PID:37639 | Thread:8414234688
+[2025-06-16 10:27:13,489] [    test.development] [[91mERROR   [0m] development 环境错误信息 | PID:37639 | Thread:8414234688

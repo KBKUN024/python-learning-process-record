@@ -1,0 +1,19 @@
+[2025-06-16 10:27:13,490] [        trace.用户注册流程] [[92mINFO    [0m] 🚀 开始处理请求 | PID:37639 | Thread:8414234688
+[2025-06-16 10:27:13,491] [__main__.UserService] [[92mINFO    [0m] 创建用户请求: alice | PID:37639 | Thread:8414234688
+[2025-06-16 10:27:13,596] [ __main__.structured] [[92mINFO    [0m] {"@timestamp": "2025-06-16T02:27:13.596587Z", "level": "INFO", "message": "用户创建成功", "service": "user-service", "environment": "development", "logger": "__main__.structured", "trace_id": "d7195b55", "request_id": "req_1750040833", "operation": "用户注册流程", "user_id": "user_1750040833", "username": "alice", "action": "create_user"} | PID:37639 | Thread:8414234688
+[2025-06-16 10:27:13,596] [perf.__main__.create_user] [[92mINFO    [0m] ⚡ 完成执行: create_user(3 args, 0 kwargs) 耗时 105.90ms | PID:37639 | Thread:8414234688
+[2025-06-16 10:27:13,597] [        trace.用户注册流程] [[92mINFO    [0m] ✅ 请求处理完成 耗时:0.106s | PID:37639 | Thread:8414234688
+[2025-06-16 10:27:13,597] [        trace.用户查询流程] [[92mINFO    [0m] 🚀 开始处理请求 | PID:37639 | Thread:8414234688
+[2025-06-16 10:27:13,652] [__main__.UserService] [[92mINFO    [0m] 用户查询成功: user_123456 | PID:37639 | Thread:8414234688
+[2025-06-16 10:27:13,652] [perf.__main__.get_user] [[92mINFO    [0m] ⚡ 完成执行: get_user(2 args, 0 kwargs) 耗时 55.29ms | PID:37639 | Thread:8414234688
+[2025-06-16 10:27:13,652] [        trace.用户查询流程] [[92mINFO    [0m] ✅ 请求处理完成 耗时:0.055s | PID:37639 | Thread:8414234688
+[2025-06-16 10:27:13,652] [        trace.正常支付流程] [[92mINFO    [0m] 🚀 开始处理请求 | PID:37639 | Thread:8414234688
+[2025-06-16 10:27:13,652] [__main__.PaymentService] [[92mINFO    [0m] 处理支付: 用户=user_123456, 金额=99.99 | PID:37639 | Thread:8414234688
+[2025-06-16 10:27:13,954] [ __main__.structured] [[92mINFO    [0m] {"@timestamp": "2025-06-16T02:27:13.954645Z", "level": "INFO", "message": "支付处理成功", "service": "payment-service", "environment": "development", "logger": "__main__.structured", "trace_id": "9e9edc51", "request_id": "req_1750040833", "operation": "正常支付流程", "payment_id": "pay_1750040833", "user_id": "user_123456", "amount": 99.99, "action": "process_payment"} | PID:37639 | Thread:8414234688
+[2025-06-16 10:27:13,954] [perf.__main__.process_payment] [[92mINFO    [0m] ⚡ 完成执行: process_payment(3 args, 0 kwargs) 耗时 302.28ms | PID:37639 | Thread:8414234688
+[2025-06-16 10:27:13,954] [        trace.正常支付流程] [[92mINFO    [0m] ✅ 请求处理完成 耗时:0.302s | PID:37639 | Thread:8414234688
+[2025-06-16 10:27:13,955] [        trace.异常支付流程] [[92mINFO    [0m] 🚀 开始处理请求 | PID:37639 | Thread:8414234688
+[2025-06-16 10:27:13,955] [__main__.PaymentService] [[92mINFO    [0m] 处理支付: 用户=user_123456, 金额=15000.0 | PID:37639 | Thread:8414234688
+[2025-06-16 10:27:14,261] [ __main__.structured] [[91mERROR   [0m] {"@timestamp": "2025-06-16T02:27:14.260606Z", "level": "ERROR", "message": "支付处理失败", "service": "payment-service", "environment": "development", "logger": "__main__.structured", "trace_id": "8c4eae99", "request_id": "req_1750040833", "operation": "异常支付流程", "user_id": "user_123456", "amount": 15000.0, "reason": "amount_exceeded", "error_type": "ValueError", "error_message": "支付金额过大: 15000.0", "traceback": "NoneType: None\n"} | PID:37639 | Thread:8414234688
+[2025-06-16 10:27:14,261] [perf.__main__.process_payment] [[91mERROR   [0m] 💥 执行失败: process_payment(3 args, 0 kwargs) 耗时 306.71ms 错误: 支付金额过大: 15000.0 | PID:37639 | Thread:8414234688
+[2025-06-16 10:27:14,262] [        trace.异常支付流程] [[92mINFO    [0m] ✅ 请求处理完成 耗时:0.307s | PID:37639 | Thread:8414234688
