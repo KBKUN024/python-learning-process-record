@@ -1,0 +1,103 @@
+version: '3.8'
+
+services:
+  # PostgreSQL 数据库服务
+  postgres:
+    image: postgres:15-alpine
+    container_name: postgres-learn
+    environment:
+      POSTGRES_DB: learning_db
+      POSTGRES_USER: student
+      POSTGRES_PASSWORD: student123
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --lc-collate=C --lc-ctype=C"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    networks:
+      - learning_network
+    restart: unless-stopped
+
+  # Redis 缓存服务
+  redis:
+    image: redis:7-alpine
+    container_name: redis-learn
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - learning_network
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+
+  # MongoDB 文档数据库 (可选)
+  mongodb:
+    image: mongo:6
+    container_name: mongo-learn
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: student
+      MONGO_INITDB_ROOT_PASSWORD: student123
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - learning_network
+    restart: unless-stopped
+
+  # MySQL 数据库服务 (用户特别需要)
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-learn
+    environment:
+      MYSQL_ROOT_PASSWORD: student123
+      MYSQL_DATABASE: learning_db
+      MYSQL_USER: student
+      MYSQL_PASSWORD: student123
+      MYSQL_CHARSET: utf8mb4
+      MYSQL_COLLATION: utf8mb4_unicode_ci
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./mysql-init:/docker-entrypoint-initdb.d
+    networks:
+      - learning_network
+    restart: unless-stopped
+    command: --default-authentication-plugin=mysql_native_password
+
+  # pgAdmin - PostgreSQL 管理工具
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin-learn
+    environment:
+      PGADMIN_DEFAULT_EMAIL: student@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - "8080:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - learning_network
+    restart: unless-stopped
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
+    driver: local
+  mysql_data:
+    driver: local
+  redis_data:
+    driver: local
+  mongo_data:
+    driver: local
+  pgadmin_data:
+    driver: local
+
+networks:
+  learning_network:
+    driver: bridge 
